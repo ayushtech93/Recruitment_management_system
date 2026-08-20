@@ -1,0 +1,282 @@
+/* =========================================
+   APPLICATIONS PAGE
+========================================= */
+
+.main-content {
+    padding: 32px;
+    background: #f6f8fc;
+    min-height: calc(100vh - 70px);
+}
+
+
+/* PAGE HEADER */
+
+.page-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 28px;
+}
+
+.page-header h1 {
+    margin: 0;
+    font-size: 28px;
+    font-weight: 700;
+    color: #1f2937;
+}
+
+.page-header p {
+    margin: 7px 0 0;
+    color: #7b8494;
+    font-size: 14px;
+}
+
+.application-count {
+    padding: 10px 16px;
+    background: #ffffff;
+    border: 1px solid #e5e7eb;
+    border-radius: 8px;
+    color: #4b5563;
+    font-size: 14px;
+    font-weight: 600;
+}
+
+
+/* SEARCH + FILTER */
+
+.application-toolbar {
+    display: flex;
+    gap: 14px;
+    margin-bottom: 24px;
+}
+
+.search-box {
+    position: relative;
+    flex: 1;
+}
+
+.search-icon {
+    position: absolute;
+    left: 16px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: #9ca3af;
+    font-size: 20px;
+}
+
+.search-box input {
+    width: 100%;
+    height: 48px;
+    box-sizing: border-box;
+    padding: 0 18px 0 45px;
+    border: 1px solid #e1e5eb;
+    border-radius: 9px;
+    background: #ffffff;
+    outline: none;
+    font-size: 14px;
+    color: #374151;
+}
+
+.search-box input::placeholder {
+    color: #9ca3af;
+}
+
+.search-box input:focus {
+    border-color: #2563eb;
+}
+
+
+.filter-box select {
+    width: 180px;
+    height: 48px;
+    padding: 0 14px;
+    border: 1px solid #e1e5eb;
+    border-radius: 9px;
+    background: #ffffff;
+    color: #374151;
+    font-size: 14px;
+    outline: none;
+    cursor: pointer;
+}
+
+
+/* APPLICATION LIST */
+
+.applications-list {
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+}
+
+
+/* APPLICATION CARD */
+
+.application-card {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 25px;
+    padding: 22px 24px;
+    background: #ffffff;
+    border: 1px solid #e9edf3;
+    border-radius: 12px;
+    transition: 0.2s ease;
+}
+
+.application-card:hover {
+    border-color: #d8e1ef;
+    transform: translateY(-2px);
+    box-shadow: 0 8px 22px rgba(0, 0, 0, 0.06);
+}
+
+
+/* CANDIDATE */
+
+.candidate-info {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    min-width: 0;
+}
+
+.candidate-avatar {
+    width: 48px;
+    height: 48px;
+    flex-shrink: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    background: #e8f0ff;
+    color: #2563eb;
+    font-size: 14px;
+    font-weight: 700;
+}
+
+.candidate-details h2 {
+    margin: 0 0 5px;
+    color: #1f2937;
+    font-size: 16px;
+    font-weight: 650;
+}
+
+.position {
+    margin: 0 0 4px;
+    color: #4b5563;
+    font-size: 14px;
+}
+
+.education {
+    margin: 0;
+    color: #9ca3af;
+    font-size: 12px;
+}
+
+
+/* RIGHT SIDE */
+
+.application-meta {
+    display: flex;
+    align-items: center;
+    gap: 22px;
+}
+
+.application-date {
+    color: #6b7280;
+    font-size: 13px;
+    white-space: nowrap;
+}
+
+
+/* STATUS */
+
+.status {
+    display: inline-flex;
+    align-items: center;
+    padding: 6px 11px;
+    border-radius: 20px;
+    font-size: 12px;
+    font-weight: 600;
+    white-space: nowrap;
+}
+
+.status.new {
+    background: #eaf2ff;
+    color: #2563eb;
+}
+
+.status.shortlisted {
+    background: #fff5db;
+    color: #b77900;
+}
+
+.status.interview {
+    background: #eeeaff;
+    color: #6842d9;
+}
+
+
+/* VIEW BUTTON */
+
+.view-btn {
+    border: none;
+    background: transparent;
+    color: #2563eb;
+    font-size: 13px;
+    font-weight: 600;
+    cursor: pointer;
+    white-space: nowrap;
+    padding: 8px 0;
+}
+
+.view-btn:hover {
+    color: #1747b0;
+}
+
+
+/* RESPONSIVE */
+
+@media (max-width: 900px) {
+
+    .application-card {
+        align-items: flex-start;
+        flex-direction: column;
+    }
+
+    .application-meta {
+        width: 100%;
+        justify-content: space-between;
+    }
+}
+
+
+@media (max-width: 600px) {
+
+    .main-content {
+        padding: 20px 15px;
+    }
+
+    .page-header {
+        align-items: flex-start;
+        flex-direction: column;
+        gap: 12px;
+    }
+
+    .application-toolbar {
+        flex-direction: column;
+    }
+
+    .filter-box select {
+        width: 100%;
+    }
+
+    .application-meta {
+        align-items: flex-start;
+        flex-wrap: wrap;
+        gap: 12px;
+    }
+
+    .application-card {
+        padding: 18px;
+    }
+}

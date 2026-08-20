@@ -1,0 +1,11 @@
+* { margin: 0; padding: 0; box-sizing: border-box; font-family: Arial, sans-serif; } body { min-height: 100vh; background: linear-gradient(135deg, #eef4ff, #ffffff); display: flex; align-items: center; justify-content: center; } .login-container { width: 900px; max-width: 92%; min-height: 520px; background: #ffffff; border-radius: 20px; overflow: hidden; box-shadow: 0 15px 45px rgba(0, 0, 0, 0.12); display: flex; } /* LEFT SECTION */ .login-left { width: 50%; background: linear-gradient(135deg, #0d6efd, #084298); color: white; padding: 60px 45px; display: flex; flex-direction: column; justify-content: center; } .logo { font-size: 28px; font-weight: bold; margin-bottom: 20px; } .login-left h1 { font-size: 38px; margin-bottom: 18px; } .login-left p { font-size: 16px; line-height: 1.7; opacity: 0.9; } .feature-list { margin-top: 30px; } .feature-list div { margin-bottom: 14px; font-size: 15px; } /* RIGHT SECTION */ .login-right { width: 50%; padding: 60px 50px; display: flex; flex-direction: column; justify-content: center; } .login-right h2 { font-size: 30px; color: #222; margin-bottom: 8px; } .subtitle { color: #777; font-size: 14px; margin-bottom: 30px; } .form-group { margin-bottom: 20px; } .form-group label { display: block; margin-bottom: 8px; font-size: 14px; font-weight: 600; color: #333; } .form-group input { width: 100%; padding: 13px 14px; border: 1px solid #ddd; border-radius: 8px; font-size: 15px; outline: none; transition: 0.3s; } .form-group input:focus { border-color: #0d6efd; box-shadow: 0 0 0 3px rgba(13, 110, 253, 0.1); } .login-btn { width: 100%; border: none; padding: 14px; border-radius: 8px; background: #0d6efd; color: white; font-size: 16px; font-weight: 600; cursor: pointer; transition: 0.3s; margin-top: 5px; } .login-btn:hover { background: #084298; } .footer-text { text-align: center; margin-top: 25px; font-size: 13px; color: #888; } /* RESPONSIVE */ @media (max-width: 768px) { .login-container { flex-direction: column; min-height: auto; } .login-left, .login-right { width: 100%; } .login-left { padding: 40px 30px; } .login-left h1 { font-size: 30px;ṣ } .login-right { padding: 40px 30px; } }
+
+.error-message {
+    background: #ffe5e5;
+    color: #d32f2f;
+    padding: 12px;
+    border-radius: 8px;
+    margin-bottom: 20px;
+    font-size: 14px;
+    text-align: center;
+}

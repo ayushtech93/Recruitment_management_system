@@ -1,0 +1,242 @@
+{% extends 'base.html' %}
+
+{% block pages %}
+
+{% include 'header.html' %}
+
+<div class="interview-page">
+
+    <!-- Header -->
+    <div class="page-header">
+        <div>
+            <h1>Schedule Interview</h1>
+            <p>Schedule an interview for the shortlisted candidate</p>
+        </div>
+
+        <a href="javascript:history.back()" class="back-btn">
+            ← Back
+        </a>
+    </div>
+
+
+    <!-- Candidate Information -->
+    <div class="candidate-card">
+
+        <div class="candidate-title">
+            <div class="candidate-icon">
+                {{ application.student.name|first|upper }}
+            </div>
+
+            <div>
+                <h2>{{ application.student.name }}</h2>
+                <p>{{ application.applied_position }}</p>
+            </div>
+        </div>
+
+        <div class="candidate-details">
+
+            <div class="detail-item">
+                <span class="label">Email</span>
+                <span class="value">
+                    {{ application.student.email }}
+                </span>
+            </div>
+
+            <div class="detail-item">
+                <span class="label">Mobile</span>
+                <span class="value">
+                    {{ application.student.mobile }}
+                </span>
+            </div>
+
+            <div class="detail-item">
+                <span class="label">College</span>
+                <span class="value">
+                    {{ application.student.college }}
+                </span>
+            </div>
+
+            <div class="detail-item">
+                <span class="label">Experience</span>
+                <span class="value">
+                    {{ application.student.experience }}
+                </span>
+            </div>
+
+        </div>
+
+    </div>
+
+
+    <!-- Interview Form -->
+    <div class="form-card">
+
+        <div class="form-heading">
+            <h2>Interview Details</h2>
+            <p>Enter the details for the candidate's interview.</p>
+        </div>
+
+
+        <form method="POST">
+
+            {% csrf_token %}
+
+            <div class="form-grid">
+
+                <!-- Interview Date -->
+                <div class="form-group">
+
+                    <label for="id_interview_date">
+                        Interview Date
+                    </label>
+
+                    <input
+                        type="date"
+                        name="interview_date"
+                        id="id_interview_date"
+                        required
+                    >
+
+                </div>
+
+
+                <!-- Interview Time -->
+                <div class="form-group">
+
+                    <label for="id_interview_time">
+                        Interview Time
+                    </label>
+
+                    <input
+                        type="time"
+                        name="interview_time"
+                        id="id_interview_time"
+                        required
+                    >
+
+                </div>
+
+
+                <!-- Interview Type -->
+                <div class="form-group">
+
+                    <label for="id_interview_type">
+                        Interview Type
+                    </label>
+
+                    <select
+                        name="interview_type"
+                        id="id_interview_type"
+                        required
+                    >
+
+                        <option value="">
+                            Select Interview Type
+                        </option>
+
+                        <option value="Online">
+                            Online
+                        </option>
+
+                        <option value="Offline">
+                            Offline
+                        </option>
+
+                    </select>
+
+                </div>
+
+
+                <!-- Interviewer -->
+                <div class="form-group">
+
+                    <label for="id_interviewer">
+                        Interviewer
+                    </label>
+
+                    <select
+                        name="interviewer"
+                        id="id_interviewer"
+                        required
+                    >
+
+                        <option value="">
+                            Select Interviewer
+                        </option>
+
+                        {% for hr in hr_profiles %}
+
+                            <option value="{{ hr.id }}">
+                                {{ hr.user.get_full_name|default:hr.user.username }}
+                            </option>
+
+                        {% endfor %}
+
+                    </select>
+
+                </div>
+
+
+                <!-- Location / Meeting Link -->
+                <div class="form-group full-width">
+
+                    <label for="id_location_or_link">
+                        Meeting Link / Location
+                    </label>
+
+                    <input
+                        type="text"
+                        name="location_or_link"
+                        id="id_location_or_link"
+                        placeholder="Enter meeting link or interview location"
+                    >
+
+                </div>
+
+            </div>
+
+
+            <!-- Information -->
+            <div class="info-box">
+
+                <div class="info-icon">
+                    i
+                </div>
+
+                <div>
+                    <strong>Interview Status</strong>
+                    <p>
+                        New interviews will automatically be created
+                        with <b>Scheduled</b> status.
+                    </p>
+                </div>
+
+            </div>
+
+
+            <!-- Buttons -->
+            <div class="form-actions">
+
+                <a
+                    href="javascript:history.back()"
+                    class="cancel-btn"
+                >
+                    Cancel
+                </a>
+
+                <button
+                    type="submit"
+                    class="schedule-btn"
+                >
+                    Schedule Interview
+                </button>
+
+            </div>
+
+        </form>
+
+    </div>
+
+</div>
+
+{% endblock %}

@@ -1,0 +1,240 @@
+{% extends 'base.html' %}
+
+{% block pages %}
+
+{% include 'header.html' %}
+
+    <main class="details-page">
+
+    <!-- PAGE HEADER -->
+
+    <div class="details-header">
+
+        <div>
+            <h1>Application Details</h1>
+            <p>Review candidate application information</p>
+        </div>
+
+       
+    </div>
+
+
+    <!-- DETAILS CARD -->
+
+    <div class="details-card">
+
+
+        <!-- CANDIDATE HEADER -->
+
+        <div class="candidate-header">
+
+            <div class="large-avatar">
+                {{ application.student.name|first }}
+            </div>
+
+            <div>
+
+                <h2>
+                    {{ applications.student.name }}
+                </h2>
+
+                <p>
+                    {{ applications.applied_position }}
+                </p>
+
+            </div>
+
+        </div>
+
+
+        <!-- BASIC INFORMATION -->
+
+        <div class="details-grid">
+
+            <div class="detail-item">
+
+                <span class="detail-label">
+                    Email
+                </span>
+
+                <span class="detail-value">
+                    {{ applications.student.email }}
+                </span>
+
+            </div>
+
+
+            <div class="detail-item">
+
+                <span class="detail-label">
+                    Mobile
+                </span>
+
+                <span class="detail-value">
+                    {{ applications.student.mobile }}
+                </span>
+
+            </div>
+
+
+            <div class="detail-item">
+
+                <span class="detail-label">
+                    College
+                </span>
+
+                <span class="detail-value">
+                    {{ applications.student.college }}
+                </span>
+
+            </div>
+
+
+            <div class="detail-item">
+
+                <span class="detail-label">
+                    Course
+                </span>
+
+                <span class="detail-value">
+                    {{ applications.student.course }}
+                </span>
+
+            </div>
+
+
+            <div class="detail-item">
+
+                <span class="detail-label">
+                    Passing Year
+                </span>
+
+                <span class="detail-value">
+                    {{ applications.student.passing_year }}
+                </span>
+
+            </div>
+
+
+            <div class="detail-item">
+
+                <span class="detail-label">
+                    Experience
+                </span>
+
+                <span class="detail-value">
+                    {{ applications.student.experience }}
+                </span>
+
+            </div>
+
+
+            <div class="detail-item">
+
+                <span class="detail-label">
+                    Applied Position
+                </span>
+
+                <span class="detail-value">
+                    {{ applications.applied_position }}
+                </span>
+
+            </div>
+
+
+            <div class="detail-item">
+
+                <span class="detail-label">
+                    Applied Date
+                </span>
+
+                <span class="detail-value">
+                    {{ applications.applied_date|date:"d M Y" }}
+                </span>
+
+            </div>
+
+        </div>
+
+
+        <!-- SKILLS -->
+
+        <div class="skills-section">
+
+            <h3>Skills</h3>
+
+            <div class="skills-text">
+                {{ applications.student.skills }}
+            </div>
+
+        </div>
+
+
+        <!-- MESSAGE -->
+
+        <div class="message-section">
+
+            <h3>Application Message</h3>
+
+            <div class="message-box">
+
+                {% if applications.message %}
+
+                    {{ applications.message }}
+
+                {% else %}
+
+                    No message provided by the candidate.
+
+                {% endif %}
+
+            </div>
+
+        </div>
+
+
+        <!-- RESUME -->
+
+        {% if application.student.resume %}
+
+        <div class="message-section">
+
+            <h3>Resume</h3>
+
+            <div class="message-box">
+
+                <a href="{{ application.student.resume.url }}"
+                   target="_blank"
+                   class="back-btn">
+
+                    View Resume →
+
+                </a>
+
+            </div>
+
+        </div>
+
+        {% endif %}
+
+
+        <!-- ACTIONS -->
+
+        <div class="application-actions">
+
+            <a href="{% url 'shortlist_candidate' applications.id %}" class="action-btn shortlist-btn">
+                Shortlist Candidate
+            </a>
+
+            <button class="action-btn reject-btn">
+                Reject Application
+            </button>
+
+        </div>
+
+
+    </div>
+
+</main>
+
+{% endblock %}

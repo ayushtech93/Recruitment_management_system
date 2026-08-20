@@ -1,0 +1,45 @@
+{% extends 'base.html' %}
+
+{% block pages %}
+
+<div class="login-container">
+     <!-- LEFT SIDE -->
+       <div class="login-left">
+         <div class="logo"> Optical Solution </div>
+          <h1>Welcome Back!</h1>
+           <p> Login to access the Optical Solution HR Recruitment Management System. </p> 
+           <div class="feature-list"> 
+            <div>✓ Manage Student Applications</div>
+             <div>✓ Schedule Interviews</div>
+              <div>✓ Add Interview Reviews</div> 
+              <div>✓ Manage Student Visits</div> 
+            </div> 
+        </div> <!-- RIGHT SIDE --> 
+        <div class="login-right"> 
+            <h2>HR Login</h2>
+             <p class="subtitle"> Enter your account details to continue. </p> 
+
+
+             {% if messages %}
+                 <div class="error-message">
+                      {{ message }}
+                  </div>
+             {% endif %}
+                  
+
+
+             <form method="POST">
+                 {% csrf_token %}
+                 <div class="form-group"> 
+                    <label for="username"> Username </label> 
+                    <input type="text" id="username" name="username" placeholder="Enter your username" required > </div>
+                     <div class="form-group"> 
+                        <label for="password"> Password </label> 
+                        <input type="password" id="password" name="password" placeholder="Enter your password" required > </div> 
+                        <button type="submit" class="login-btn"> Login </button>
+                     </form>
+                      <div class="footer-text"> © 2026 Optical Solution. All Rights Reserved. </div> 
+                    </div> 
+                </div>
+
+{% endblock %}

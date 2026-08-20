@@ -1,0 +1,112 @@
+{% extends 'base.html' %}
+
+{% block pages %}
+
+{% include 'header.html' %}
+<main class="main-content">
+
+    <!-- PAGE HEADER -->
+    <div class="page-header">
+
+        <div>
+            <h1>Applications</h1>
+            <p>Manage and review candidate applications</p>
+        </div>
+
+        <div class="application-count">
+           Total {{apply}} Aplications
+        </div>
+
+    </div>
+
+
+    <!-- SEARCH & FILTER -->
+    <div class="application-toolbar">
+
+        <div class="search-box">
+
+            <span class="search-icon">⌕</span>
+
+            <input
+                type="text"
+                placeholder="Search candidates..."
+            >
+
+        </div>
+
+
+        <div class="filter-box">
+
+            <select>
+                <option>All Status</option>
+                <option>New</option>
+                <option>Shortlisted</option>
+                <option>Interview</option>
+                <option>Selected</option>
+                <option>Rejected</option>
+                <option>On Hold</option>
+            </select>
+
+        </div>
+
+    </div>
+
+    {% for application in applications %}
+
+<div class="application-card">
+
+    <div class="candidate-info">
+
+        <div class="candidate-avatar">
+            {{ application.student.name|first }}
+        </div>
+
+        <div class="candidate-details">
+
+            <h2>
+                {{ application.student.name }}
+            </h2>
+
+            <p class="position">
+                {{ application.applied_position }}
+            </p>
+
+            <p class="education">
+                {{ application.student.college }} •
+                {{ application.student.course }}
+            </p>
+
+        </div>
+
+    </div>
+
+
+    <div class="application-meta">
+
+        <div class="application-status">
+
+            <span class="status {{ application.status|lower }}">
+                {{ application.status }}
+            </span>
+
+        </div>
+
+        <div class="application-date">
+            {{ application.applied_date|date:"d M Y" }}
+        </div>
+
+        <a href="{% url 'application_details' application.id %}"  class="view-btn">View details </a>
+
+    </div>
+
+</div>
+
+{% empty %}
+
+<div class="no-applications">
+    <p>No applications found.</p>
+</div>
+
+{% endfor %}
+
+{% endblock %}
